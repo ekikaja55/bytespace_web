@@ -7,7 +7,6 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-13+-black?logo=next.js" alt="Next.js" />
-  <img src="https://img.shields.io/github/license/ekikaja55/bytespace?color=blue" alt="License" />
   <img src="https://img.shields.io/badge/Deployed%20on-Vercel-000?logo=vercel&logoColor=white" alt="Deploy" />
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" />
 </p>
