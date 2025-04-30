@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:tailwindcss/recommended",
+    "eslint:recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "react-hooks", "tailwindcss"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

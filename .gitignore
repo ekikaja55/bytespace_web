@@ -42,6 +42,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# vscode settings
-.vscode/
-.code-workspace
+# vscode settings — only ignore files other than settings.json
+.vscode/*
+!.vscode/settings.json
+
+# optional: ignore workspace file
+*.code-workspace
