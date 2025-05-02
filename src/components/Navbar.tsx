@@ -6,7 +6,7 @@ import Dropdown from './Dropdown';
 
 export default function Navbar() {
   return (
-    <nav className="bg-zinc-700 p-4 flex justify-evenly items-center-safe gap-5 h-30 min-w-dvh ">
+    <nav className="bg-transparent text-amber-50 p-4 flex justify-evenly items-center-safe gap-5 h-30 min-w-dvh ">
       <Link href="/" className="text-4xl">
         ByteSpace
       </Link>

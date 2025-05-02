@@ -1,11 +1,14 @@
 /* eslint-disable */
 'use client';
+import { AuroraText } from '@/components/magicui/aurora-text';
 import Image from 'next/image';
 
 export default function Home() {
   return (
     <>
-      <h1 className="text-9xl font-bold text-center mt-1.5">bytespace</h1>
+      <div className="flex justify-center">
+        <AuroraText className="text-9xl">ByteSpace</AuroraText>
+      </div>
     </>
   );
 }
