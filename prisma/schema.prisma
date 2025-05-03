@@ -5,7 +5,6 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -47,4 +46,63 @@ type SubscriptionLog{
 
 model Post{
   post_id String @id @default(auto()) @map("_id") @db.ObjectId
+  post_title String
+  post_short_desc String
+  post_long_desc String
+  post_image String[]
+  post_tag String
+  post_type String
+  post_comment Comment[]
+}
+
+type Comment{
+  comment_user String
+  comment_date DateTime
+  comment_like Int @default(0)
+}
+
+model Course{
+  course_id String @id @default(auto()) @map("_id") @db.ObjectId
+  course_name String
+  course_mentor String
+  course_image String
+  course_desc String
+  course_content Content[]
+}
+
+type Content{
+  content_title String
+  content_short_desc String
+  content_desc String
+  content_src Src
+}
+
+type Src{
+  img_url String[]
+  video_url String
+}
+
+model chat{
+  chat_id String @id @default(auto()) @map("_id") @db.ObjectId
+  chat_sender String
+  chat_receiver String
+  chat_message String
+}
+
+model Forum {
+  forum_id  String @id @default(auto()) @map("_id") @db.ObjectId
+  forum_title  String
+  forum_date   DateTime
+  forum_desc   String
+  forum_img    String
+  forum_like   Int          @default(0)
+  forum_publisher String
+  forum_reply  ForumReply[]
+}
+
+type ForumReply {
+  username String
+  date     DateTime
+  reply    String
+  replies  ForumReply[] 
 }
