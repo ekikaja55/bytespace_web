@@ -1,4 +1,3 @@
-/* global css */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -110,19 +109,16 @@
   --color-text: #e9ecef;
   --color-text-dim: #ced4da;
 
-  /* Wave gradient colors - tech theme */
   --wave-color-1: #0b132b;
   --wave-color-2: #1c2541;
   --wave-color-3: #3a506b;
   --wave-color-4: #5bc0be;
   --wave-color-5: #00a6fb;
 
-  /* Glow colors */
   --glow-primary: rgba(58, 134, 255, 0.6);
   --glow-secondary: rgba(131, 56, 236, 0.6);
   --glow-accent: rgba(0, 212, 255, 0.4);
 
-  /* Glow colors */
   --glow-primary: rgba(58, 134, 255, 0.6);
   --glow-secondary: rgba(131, 56, 236, 0.6);
   --glow-accent: rgba(0, 212, 255, 0.4);
@@ -162,19 +158,14 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-/* Modern Tech Theme CSS */
-
-/* Hero Background */
 .hero-background {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(145deg, var(--color-bg), #121824);
-  overflow: hidden;
   perspective: 1000px;
   z-index: 0;
 }
 
-/* Interactive floating orbs */
 .glow-orbs {
   position: absolute;
   inset: 0;
@@ -192,7 +183,6 @@
   transition: transform 0.3s ease-out;
 }
 
-/* Primary orb */
 .glow-orbs::before {
   width: 50vw;
   height: 50vw;
@@ -203,7 +193,6 @@
   animation: orb-float 12s infinite alternate ease-in-out;
 }
 
-/* Secondary orb */
 .glow-orbs::after {
   width: 45vw;
   height: 45vw;
@@ -232,7 +221,6 @@
   }
 }
 
-/* Subtle noise overlay */
 .noise-overlay {
   position: absolute;
   inset: 0;
@@ -243,7 +231,6 @@
   z-index: 2;
 }
 
-/* Navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -334,7 +321,6 @@
   box-shadow: 0 0 15px rgba(58, 134, 255, 0.3);
 }
 
-/* Hero content */
 .hero-content {
   text-align: center;
   padding-top: 12vh;
@@ -386,7 +372,6 @@
   font-weight: 400;
 }
 
-/* Get Started Button */
 .get-started-btn {
   margin-top: 2rem;
   display: flex;
@@ -447,7 +432,6 @@
   transform: translateX(3px);
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;

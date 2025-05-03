@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="noise-overlay"></div>
       <div className="glow-orbs"></div>
 
-      <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
+      <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''} `}>
         <Link href="/" className="navbar-logo">
           <span className="text-glow">ByteSpace</span>
         </Link>
