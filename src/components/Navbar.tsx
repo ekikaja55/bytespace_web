@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="bg-transparent text-amber-50 p-4 flex justify-evenly items-center-safe gap-5 h-30 min-w-dvh ">
       <Link href="/" className="text-4xl">
-        ByteSpace
+        ByteSpace CIHUY
       </Link>
       <div className="flex gap-4 ">
         <Dropdown />
