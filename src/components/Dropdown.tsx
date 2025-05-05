@@ -6,7 +6,6 @@ export default function Dropdown() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -104,32 +103,6 @@ export default function Dropdown() {
               <span className="dropdown-item-line h-px w-0 bg-gradient-to-r from-cyan-400 to-transparent group-hover:w-full transition-all duration-300 ml-auto"></span>
             </Link>
           ))}
-
-          <div className="dropdown-section-divider my-1 h-px bg-gray-800"></div>
-
-          <div className="px-4 py-3">
-            <p className="text-xs text-gray-400">Discover the future of space technology</p>
-            <Link
-              href="/featured"
-              className="featured-dropdown-item mt-2 flex items-center justify-between w-full px-3 py-2 text-sm font-medium rounded-md bg-gradient-to-r from-blue-900/40 to-purple-900/40 hover:from-blue-800/40 hover:to-purple-800/40 border border-blue-700/30 transition-all"
-              onClick={() => setOpen(false)}
-            >
-              <span>Featured Content</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </div>
 
