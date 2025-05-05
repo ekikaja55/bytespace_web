@@ -8,7 +8,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Handle scroll events for navbar transparency
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -22,7 +21,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track mouse position for interactive glow effect
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
