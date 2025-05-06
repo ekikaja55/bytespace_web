@@ -10,18 +10,20 @@ export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isInViewport, setIsInViewport] = useState({
     features: false,
+    keyFeatures: false,
     whyJoin: false,
     testimonials: false,
     cta: false,
   });
 
   const featuresRef = useRef(null);
+  const keyFeaturesRef = useRef(null);
   const whyJoinRef = useRef(null);
   const testimonialsRef = useRef(null);
   const ctaRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: any) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 100,
         y: (e.clientY / window.innerHeight) * 100,
@@ -34,8 +36,8 @@ export default function Home() {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.1,
+      rootMargin: '0px 0px -5% 0px',
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -43,6 +45,8 @@ export default function Home() {
         if (entry.isIntersecting) {
           if (entry.target === featuresRef.current) {
             setIsInViewport((prev) => ({ ...prev, features: true }));
+          } else if (entry.target === keyFeaturesRef.current) {
+            setIsInViewport((prev) => ({ ...prev, keyFeatures: true }));
           } else if (entry.target === whyJoinRef.current) {
             setIsInViewport((prev) => ({ ...prev, whyJoin: true }));
           } else if (entry.target === testimonialsRef.current) {
@@ -55,12 +59,14 @@ export default function Home() {
     }, observerOptions);
 
     if (featuresRef.current) observer.observe(featuresRef.current);
+    if (keyFeaturesRef.current) observer.observe(keyFeaturesRef.current);
     if (whyJoinRef.current) observer.observe(whyJoinRef.current);
     if (testimonialsRef.current) observer.observe(testimonialsRef.current);
     if (ctaRef.current) observer.observe(ctaRef.current);
 
     return () => {
       if (featuresRef.current) observer.unobserve(featuresRef.current);
+      if (keyFeaturesRef.current) observer.unobserve(keyFeaturesRef.current);
       if (whyJoinRef.current) observer.unobserve(whyJoinRef.current);
       if (testimonialsRef.current) observer.unobserve(testimonialsRef.current);
       if (ctaRef.current) observer.unobserve(ctaRef.current);
@@ -72,7 +78,7 @@ export default function Home() {
       <div
         className="hero-background"
         style={{
-          ['--mouse-x ' as any ]: `${mousePosition.x}%`,
+          ['--mouse-x ' as any]: `${mousePosition.x}%`,
           ['--mouse-y' as any]: `${mousePosition.y}%`,
         }}
       >
@@ -117,9 +123,8 @@ export default function Home() {
       <section className="py-20 px-4 md:px-10 relative" ref={featuresRef}>
         <div className="container mx-auto max-w-7xl">
           <div
-            className={`bento-grid grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-1000 ${
-              isInViewport.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+            className={`bento-grid grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-1000 ${isInViewport.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
           >
             <div className="bento-item md:col-span-5 lg:col-span-6 bg-[#1c2541]/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:shadow-lg hover:shadow-[#3a86ff]/10">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
@@ -230,10 +235,9 @@ export default function Home() {
       </section>
 
       <section
-        ref={featuresRef}
-        className={`py-16 relative overflow-hidden transition-all duration-1000 ${
-          isInViewport.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        ref={keyFeaturesRef}
+        className={`py-16 relative overflow-hidden transition-all duration-1000 ${isInViewport.keyFeatures ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
       >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
@@ -245,9 +249,8 @@ export default function Home() {
 
       <section
         ref={whyJoinRef}
-        className={`py-20 relative overflow-hidden bg-[#0b132b] transition-all duration-1000 ${
-          isInViewport.whyJoin ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`py-20 relative overflow-hidden bg-[#0b132b] transition-all duration-1000 ${isInViewport.whyJoin ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
       >
         <div className="container mx-auto px-4 max-w-7xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
@@ -338,9 +341,8 @@ export default function Home() {
 
       <section
         ref={testimonialsRef}
-        className={`py-20 relative overflow-hidden transition-all duration-1000 ${
-          isInViewport.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`py-20 relative overflow-hidden transition-all duration-1000 ${isInViewport.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
       >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gradient">
@@ -356,9 +358,8 @@ export default function Home() {
 
       <section
         ref={ctaRef}
-        className={`py-20 relative overflow-hidden bg-gradient-to-b from-[#0a0d14] to-[#0b132b] transition-all duration-1000 ${
-          isInViewport.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        className={`py-20 relative overflow-hidden bg-gradient-to-b from-[#0a0d14] to-[#0b132b] transition-all duration-1000 ${isInViewport.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
       >
         <div className="container mx-auto px-4">
           <div className="bento-item max-w-4xl mx-auto bg-[#1c2541]/70 backdrop-blur-md p-10 rounded-2xl border border-white/10 hover:border-primary/40 transition-all duration-300">
@@ -414,6 +415,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-</>
+    </>
   );
 }
