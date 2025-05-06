@@ -1,9 +1,10 @@
 /*eslint-disable */
 'use client';
-import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { joiResolver } from '@hookform/resolvers/joi';
-import Joi from 'joi';
+import React, { useState } from 'react';
+import {useEffect} from 'react';
+import {useForm} from 'react-hook-form';
+import {joiResolver} from '@hookform/resolvers/joi';
+const Joi = require('joi');
 import { signIn } from 'next-auth/react';
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { Button } from "@/components/ui/button";
@@ -189,7 +190,7 @@ const Page = () => {
     setSuccess("");
   }, [activeTab]);
 
-  const onSignIn = async (data) => {
+  const onSignIn = async (data:any) => {
     setIsLoading(true);
     setSuccess("");
 
@@ -217,7 +218,7 @@ const Page = () => {
     }
   };
 
-  const onRegister = async (data) => {
+  const onRegister = async (data:any) => {
     setIsLoading(true);
     setSuccess("");
 
@@ -531,7 +532,7 @@ const Page = () => {
                             <Calendar
                               mode="single"
                               selected={birthDate}
-                              onSelect={(date) => setRegisterValue('birthDate', date)}
+                              onSelect={(date:any) => setRegisterValue('birthDate', date)}
                               disabled={(date) => date > new Date()}
                               initialFocus
                               className="rounded-md border border-white/10 text-white"
@@ -548,7 +549,7 @@ const Page = () => {
                           <Users size={16} />
                           <span>Gender</span>
                         </Label>
-                        <Select onValueChange={(value) => setRegisterValue('gender', value)}>
+                        <Select onValueChange={(value:any) => setRegisterValue('gender', value)}>
                           <SelectTrigger id="register-gender" className="text-white bg-[#14141f]/70 border-white/10 focus:border-[#8B5CF6]/50 focus-visible:ring-[#8B5CF6]/20">
                             <SelectValue placeholder="Select gender" />
                           </SelectTrigger>

@@ -10,9 +10,9 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
-  const menuRef = useRef(null);
-  const exploreButtonRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const exploreButtonRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,8 +32,8 @@ export default function Navbar() {
       if (
         exploreOpen &&
         dropdownRef.current &&
-        !dropdownRef.current.contains(event.target) &&
-        !exploreButtonRef.current.contains(event.target)
+        !dropdownRef.current?.contains(event.target) &&
+        !exploreButtonRef.current?.contains(event.target)
       ) {
         setExploreOpen(false);
       }
