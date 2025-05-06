@@ -72,8 +72,8 @@ export default function Home() {
       <div
         className="hero-background"
         style={{
-          '--mouse-x': `${mousePosition.x}%`,
-          '--mouse-y': `${mousePosition.y}%`,
+          ['--mouse-x ' as any ]: `${mousePosition.x}%`,
+          ['--mouse-y' as any]: `${mousePosition.y}%`,
         }}
       >
         <div className="noise-overlay"></div>
