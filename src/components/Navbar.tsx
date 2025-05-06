@@ -2,6 +2,9 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import { ShineBorder } from "@/components/magicui/shine-border";
+import { AuroraText } from './magicui/aurora-text';
+
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,18 +87,19 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 lg:px-8 py-4 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0a0d14]/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 lg:px-8 py-4 transition-all duration-300 rounded-b-3xl ${isScrolled ? 'bg-[#0a0d14]/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        }`}
       aria-label="Main navigation"
     >
+      <ShineBorder shineColor={["#8B5CF6", "#EC4899", "#F59E0B"]} />
+
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link
           href="/"
           className="text-xl md:text-2xl font-bold text-white hover:opacity-90 transition-opacity"
           aria-label="ByteSpace Home"
         >
-          <span className="text-glow">ByteSpace</span>
+          <AuroraText>ByteSpace</AuroraText>
         </Link>
 
         <button
@@ -146,9 +150,8 @@ export default function Navbar() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={`transform transition-transform duration-200 ${
-                  exploreOpen ? 'rotate-180' : ''
-                }`}
+                className={`transform transition-transform duration-200 ${exploreOpen ? 'rotate-180' : ''
+                  }`}
                 aria-hidden="true"
               >
                 <path d="M6 9l6 6 6-6" />
@@ -158,11 +161,10 @@ export default function Navbar() {
             <div
               id="explore-dropdown"
               ref={dropdownRef}
-              className={`absolute top-full left-0 mt-1 w-48 bg-[#1c2541] rounded-lg shadow-xl transition-all duration-200 ease-in-out ${
-                exploreOpen
-                  ? 'opacity-100 visible translate-y-0'
-                  : 'opacity-0 invisible -translate-y-2'
-              }`}
+              className={`absolute top-full left-0 mt-1 w-48 bg-[#1c2541] rounded-lg shadow-xl transition-all duration-200 ease-in-out ${exploreOpen
+                ? 'opacity-100 visible translate-y-0'
+                : 'opacity-0 invisible -translate-y-2'
+                }`}
               onMouseLeave={() => setExploreOpen(false)}
               role="menu"
             >
@@ -219,14 +221,14 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            href="/sign-in"
+            href="/auth"
             className="text-gray-200 hover:text-white transition-colors px-3 py-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
             Sign In
           </Link>
 
           <Link
-            href="/sign-up"
+            href="/sign_up"
             className="bg-gradient-to-r from-[#3a86ff] to-[#8338ec] text-white px-4 py-2 rounded-md hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
             <span>Join Now</span>
@@ -236,11 +238,10 @@ export default function Navbar() {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
-            mobileMenuOpen
-              ? 'opacity-100 visible pointer-events-auto'
-              : 'opacity-0 invisible pointer-events-none'
-          }`}
+          className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${mobileMenuOpen
+            ? 'opacity-100 visible pointer-events-auto'
+            : 'opacity-0 invisible pointer-events-none'
+            }`}
         >
           <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
@@ -249,10 +250,11 @@ export default function Navbar() {
           ></div>
 
           <div
-            className={`absolute top-0 right-0 h-full w-3/4 max-w-sm bg-[#0a0d14] shadow-xl p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out ${
-              mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
+            className={`absolute top-0 right-0 h-full w-3/4 max-w-sm bg-[#0a0d14] shadow-xl p-6 overflow-y-auto rounded-l-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+              }`}
           >
+          <ShineBorder shineColor={["#8B5CF6", "#EC4899", "#F59E0B"]} />
+
             <div className="flex justify-between items-center mb-8">
               <Link href="/" className="text-xl font-bold" onClick={() => setMobileMenuOpen(false)}>
                 <span className="text-glow text-white">ByteSpace</span>
@@ -298,9 +300,8 @@ export default function Navbar() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className={`transform transition-transform duration-200 ${
-                      exploreOpen ? 'rotate-180' : ''
-                    }`}
+                    className={`transform transition-transform duration-200 ${exploreOpen ? 'rotate-180' : ''
+                      }`}
                     aria-hidden="true"
                   >
                     <path d="M6 9l6 6 6-6" />
@@ -308,9 +309,8 @@ export default function Navbar() {
                 </button>
 
                 <div
-                  className={`pl-4 space-y-3 overflow-hidden transition-all duration-200 ${
-                    exploreOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
+                  className={`pl-4 space-y-3 overflow-hidden transition-all duration-200 ${exploreOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
                 >
                   <Link
                     href="/courses"
@@ -363,7 +363,7 @@ export default function Navbar() {
 
             <div className="mt-10 space-y-4">
               <Link
-                href="/sign-in"
+                href="/sign_in"
                 className="block w-full text-center text-white border border-white/20 rounded-md py-3 hover:bg-white/10 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -371,7 +371,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="/sign-up"
+                href="/sign_up"
                 className="block w-full text-center bg-gradient-to-r from-[#3a86ff] to-[#8338ec] text-white rounded-md py-3 hover:shadow-lg transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
