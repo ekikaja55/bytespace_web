@@ -24,25 +24,27 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      const targetNode = event.target as Node;
+  
+      if (menuRef.current && !menuRef.current.contains(targetNode)) {
         setMobileMenuOpen(false);
       }
-
+  
       if (
         exploreOpen &&
         dropdownRef.current &&
-        !dropdownRef.current?.contains(event.target) &&
-        !exploreButtonRef.current?.contains(event.target)
+        !dropdownRef.current.contains(targetNode) &&
+        !exploreButtonRef.current?.contains(targetNode)
       ) {
         setExploreOpen(false);
       }
     };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+  
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [exploreOpen]);
-
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && mobileMenuOpen) {
@@ -234,150 +236,152 @@ export default function Navbar() {
             <span>Join Now</span>
           </Link>
         </div>
+      </div>
+
+      {/* Mobile menu - moved outside the navbar container but still within the nav element */}
+      <div
+        id="mobile-menu"
+        ref={menuRef}
+        className={`fixed inset-0 z-[100] md:hidden ${mobileMenuOpen
+          ? 'opacity-100 visible pointer-events-auto'
+          : 'opacity-0 invisible pointer-events-none'
+          }`}
+        style={{ position: 'fixed', top: 0 }}
+      >
+        <div
+          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+          aria-hidden="true"
+          onClick={() => setMobileMenuOpen(false)}
+        ></div>
 
         <div
-          id="mobile-menu"
-          ref={menuRef}
-          className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${mobileMenuOpen
-            ? 'opacity-100 visible pointer-events-auto'
-            : 'opacity-0 invisible pointer-events-none'
+          className={`absolute top-0 right-0 h-full w-3/4 max-w-sm bg-[#0a0d14] shadow-xl p-6 overflow-y-auto rounded-l-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
         >
-          <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            aria-hidden="true"
-            onClick={() => setMobileMenuOpen(false)}
-          ></div>
-
-          <div
-            className={`absolute top-0 right-0 h-full w-3/4 max-w-sm bg-[#0a0d14] shadow-xl p-6 overflow-y-auto rounded-l-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-              }`}
-          >
           <ShineBorder shineColor={["#8B5CF6", "#EC4899", "#F59E0B"]} />
 
-            <div className="flex justify-between items-center mb-8">
-              <Link href="/" className="text-xl font-bold" onClick={() => setMobileMenuOpen(false)}>
-                <span className="text-glow text-white">ByteSpace</span>
-              </Link>
+          <div className="flex justify-between items-center mb-8">
+            <Link href="/" className="text-xl font-bold" onClick={() => setMobileMenuOpen(false)}>
+              <span className="text-glow text-white">ByteSpace</span>
+            </Link>
 
-              <button
-                className="text-white p-2 rounded-full hover:bg-white/10 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-                aria-label="Close menu"
+            <button
+              className="text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
               >
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <button
+                className="flex items-center justify-between w-full text-left text-lg font-medium text-white mb-2 py-2"
+                onClick={() => setExploreOpen(!exploreOpen)}
+                aria-expanded={exploreOpen}
+              >
+                Explore
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className={`transform transition-transform duration-200 ${exploreOpen ? 'rotate-180' : ''
+                    }`}
                   aria-hidden="true"
                 >
-                  <path d="M18 6L6 18M6 6l12 12" />
+                  <path d="M6 9l6 6 6-6" />
                 </svg>
               </button>
-            </div>
 
-            <div className="space-y-6">
-              <div>
-                <button
-                  className="flex items-center justify-between w-full text-left text-lg font-medium text-white mb-2 py-2"
-                  onClick={() => setExploreOpen(!exploreOpen)}
-                  aria-expanded={exploreOpen}
+              <div
+                className={`pl-4 space-y-3 overflow-hidden transition-all duration-200 ${exploreOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+              >
+                <Link
+                  href="/courses"
+                  className="block py-2 text-gray-300 hover:text-white transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
-                  Explore
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className={`transform transition-transform duration-200 ${exploreOpen ? 'rotate-180' : ''
-                      }`}
-                    aria-hidden="true"
-                  >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </button>
-
-                <div
-                  className={`pl-4 space-y-3 overflow-hidden transition-all duration-200 ${exploreOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-                    }`}
+                  Courses
+                </Link>
+                <Link
+                  href="/wiki"
+                  className="block py-2 text-gray-300 hover:text-white transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Link
-                    href="/courses"
-                    className="block py-2 text-gray-300 hover:text-white transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Courses
-                  </Link>
-                  <Link
-                    href="/wiki"
-                    className="block py-2 text-gray-300 hover:text-white transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Wiki
-                  </Link>
-                  <Link
-                    href="/community"
-                    className="block py-2 text-gray-300 hover:text-white transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Community
-                  </Link>
-                </div>
+                  Wiki
+                </Link>
+                <Link
+                  href="/community"
+                  className="block py-2 text-gray-300 hover:text-white transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Community
+                </Link>
               </div>
-
-              <Link
-                href="/news"
-                className="block text-lg font-medium text-white py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                News
-              </Link>
-
-              <Link
-                href="/forums"
-                className="block text-lg font-medium text-white py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Forums
-              </Link>
-
-              <Link
-                href="/about"
-                className="block text-lg font-medium text-white py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About Us
-              </Link>
             </div>
 
-            <div className="mt-10 space-y-4">
-              <Link
-                href="/auth"
-                className="block w-full text-center text-white border border-white/20 rounded-md py-3 hover:bg-white/10 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Sign In
-              </Link>
+            <Link
+              href="/news"
+              className="block text-lg font-medium text-white py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              News
+            </Link>
 
-              <Link
-                href="/sign_up"
-                className="block w-full text-center bg-gradient-to-r from-[#3a86ff] to-[#8338ec] text-white rounded-md py-3 hover:shadow-lg transition-all"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Join the Community
-              </Link>
-            </div>
+            <Link
+              href="/forums"
+              className="block text-lg font-medium text-white py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Forums
+            </Link>
+
+            <Link
+              href="/about"
+              className="block text-lg font-medium text-white py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About Us
+            </Link>
+          </div>
+
+          <div className="mt-10 space-y-4">
+            <Link
+              href="/auth"
+              className="block w-full text-center text-white border border-white/20 rounded-md py-3 hover:bg-white/10 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Sign In
+            </Link>
+
+            <Link
+              href="/sign_up"
+              className="block w-full text-center bg-gradient-to-r from-[#3a86ff] to-[#8338ec] text-white rounded-md py-3 hover:shadow-lg transition-all"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Join the Community
+            </Link>
           </div>
         </div>
       </div>
