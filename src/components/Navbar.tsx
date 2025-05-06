@@ -363,7 +363,7 @@ export default function Navbar() {
 
             <div className="mt-10 space-y-4">
               <Link
-                href="/sign_in"
+                href="/auth"
                 className="block w-full text-center text-white border border-white/20 rounded-md py-3 hover:bg-white/10 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
