@@ -20,7 +20,6 @@ export default function RootLayout({
       <body className={`bg-zinc-950 overflow-x-hidden antialiased `}>
         <Navbar />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );

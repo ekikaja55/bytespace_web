@@ -1,3 +1,4 @@
+/* global.css */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -119,9 +120,8 @@
   --glow-secondary: rgba(131, 56, 236, 0.6);
   --glow-accent: rgba(0, 212, 255, 0.4);
 
-  --glow-primary: rgba(58, 134, 255, 0.6);
-  --glow-secondary: rgba(131, 56, 236, 0.6);
-  --glow-accent: rgba(0, 212, 255, 0.4);
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 .dark {
@@ -237,20 +237,23 @@
   align-items: center;
   padding: 1.5rem 2rem;
   transition: all 0.3s ease;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   backdrop-filter: blur(0);
 }
 
 .navbar-scrolled {
   backdrop-filter: blur(12px);
-  background: rgba(10, 13, 20, 0.7);
+  background: rgba(10, 13, 20, 0.8);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo {
   font-size: 1.5rem;
+  font-weight: bold;
   text-decoration: none;
   color: var(--color-text);
   letter-spacing: 0.5px;
@@ -263,6 +266,88 @@
 
 .text-glow:hover {
   text-shadow: 0 0 15px var(--glow-accent), 0 0 30px var(--glow-accent);
+}
+
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  80% {
+    transform: scaleY(1.1);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+    transform-origin: top center;
+  }
+}
+
+.btn-hover-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hover-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+}
+
+.btn-hover-effect:hover::after {
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.active-link {
+  position: relative;
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  animation: fadeIn 0.3s ease forwards;
 }
 
 .navbar-links {
@@ -304,14 +389,19 @@
 }
 
 .sign-in-btn {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--color-text);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .sign-in-btn:hover {
@@ -429,6 +519,27 @@
 
 .get-started-btn:hover .btn-icon {
   transform: translateX(3px);
+}
+
+@keyframes shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-nav-button {
+    padding: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @media (max-width: 768px) {
