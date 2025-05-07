@@ -238,11 +238,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu - moved outside the navbar container but still within the nav element */}
       <div
         id="mobile-menu"
         ref={menuRef}
-        className={`fixed inset-0 z-[100] md:hidden ${mobileMenuOpen
+        className={`fixed inset-0 z-[9999] md:hidden ${mobileMenuOpen
           ? 'opacity-100 visible pointer-events-auto'
           : 'opacity-0 invisible pointer-events-none'
           }`}
