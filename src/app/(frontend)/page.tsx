@@ -5,6 +5,7 @@ import TestimonialCarousel from '@/components/TestimonialCaraousel';
 import Navbar from '@/components/Navbar';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import { AuroraText } from '@/components/magicui/aurora-text';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -86,7 +87,7 @@ export default function Home() {
         <div className="glow-orbs"></div>
         <div className="hero-content">
           <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-            <span className="text-gradient">ByteSpace</span>
+            <AuroraText>This is ByteSpace</AuroraText>
           </h1>
           <p className="hero-subtitle text-xl md:text-2xl text-gray-300 mb-8">
             explore beyond our boundaries

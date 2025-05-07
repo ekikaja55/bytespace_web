@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-zinc-950 overflow-x-hidden antialiased `}>
+      <body className={`bg-gradient-to-br from-[#0f0f1c] via-[#1a1a2e] to-[#0f0f1c] overflow-x-hidden antialiased `}>
         <Navbar />
         <main>{children}</main>
         <Footer/>

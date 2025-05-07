@@ -269,7 +269,7 @@ const Page = () => {
   const birthDate = watchRegister('birthDate');
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#0f0f1c] via-[#1a1a2e] to-[#0f0f1c] flex items-center justify-center p-4 md:p-6">
+    <div className="min-h-screen w-full  flex items-center justify-center p-4 md:p-6">
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 w-full max-w-6xl mt-[20vh] mb-[20vh]">
         <motion.div
           variants={fadeLeft}
@@ -278,7 +278,7 @@ const Page = () => {
           className="text-white max-w-md text-center md:text-left space-y-6 mb-6 md:mb-0"
         >
           <div className="space-y-2">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] mt-[9.5vh]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] mt-[9vh] h-[7vh]">
               {activeTab === "signin" ? "Welcome Back" : "Join Us Today"}
             </h1>
             <p className="text-lg md:text-xl text-white/70">
@@ -556,7 +556,6 @@ const Page = () => {
                           <SelectContent className="bg-[#14141f] border-white/10 text-white">
                             <SelectItem value="male">Male</SelectItem>
                             <SelectItem value="female">Female</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
                         {registerErrors.gender && (
