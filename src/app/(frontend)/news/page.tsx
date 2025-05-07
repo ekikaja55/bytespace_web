@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from "react";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
