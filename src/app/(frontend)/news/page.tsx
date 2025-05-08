@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect, useRef } from "react";
 import { ShineBorder } from "@/components/magicui/shine-border";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -34,7 +34,6 @@ interface NewsItem {
 
 type SortOption = "date" | "popularity";
 
-// Generate random image URLs for tech news previews
 const getImageUrl = (index: number) => {
   const categories = [
     'programming', 'coding', 'technology', 'data',
