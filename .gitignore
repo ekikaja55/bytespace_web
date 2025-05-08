@@ -44,7 +44,7 @@ next-env.d.ts
 
 # vscode settings — only ignore files other than settings.json
 .vscode/*
-!.vscode/settings.json
+# !.vscode/settings.json
 
 # optional: ignore workspace file
 *.code-workspace
