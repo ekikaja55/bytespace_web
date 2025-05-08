@@ -41,7 +41,7 @@ export const getArticel = async (req: Request) => {
   }
 };
 
-export const getArticelTop = async (req: Request, context: { params: { top: number } }) => {
+export const getArticelTop = async (req: Request, context: { params: { top: string } }) => {
   try {
     const response = await axios.get(
       `${process.env.DEVELOPER_API}/articles?top=${context.params.top}`
