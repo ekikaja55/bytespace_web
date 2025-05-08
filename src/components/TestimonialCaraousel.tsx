@@ -1,6 +1,7 @@
 /* eslint-disable */
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const TestimonialCaraousel = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -11,7 +12,7 @@ const TestimonialCaraousel = () => {
       review:
         'ByteSpace transformed my learning journey. The community support and quality resources helped me land my dream job in just 6 months.',
       rating: 5,
-      image: '/api/placeholder/100/100',
+      image: '/assets/images/testi_profil/testi4.jpg',
     },
     {
       name: 'Ananda',
@@ -19,14 +20,14 @@ const TestimonialCaraousel = () => {
       review:
         'The structured learning path and expert guidance from the community made complex concepts much easier to grasp. ByteSpace is my go-to for staying updated.',
       rating: 5,
-      image: '/api/placeholder/100/100',
+      image: '/assets/images/testi_profil/testi1.jpg',
     },
     {
       name: 'Bayu Aditya',
       role: 'UX Designer',
       review: `As a contributor to the wiki, I've not only shared my knowledge but also learned so much from others. ByteSpace creates a perfect ecosystem for growth.`,
       rating: 4,
-      image: '/api/placeholder/100/100',
+      image: '/assets/images/testi_profil/testi2.jpg',
     },
     {
       name: 'Manachika',
@@ -34,7 +35,7 @@ const TestimonialCaraousel = () => {
       review:
         'The news section keeps me informed about emerging technologies, and the courses have the perfect balance of theory and practical applications.',
       rating: 5,
-      image: '/api/placeholder/100/100',
+      image: '/assets/images/testi_profil/testi3.jpg',
     },
   ];
 
@@ -53,7 +54,7 @@ const TestimonialCaraousel = () => {
             key={index}
             onClick={() => setActiveTestimonial(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === activeTestimonial ? 'bg-primary' : 'bg-gray-600'
+              index === activeTestimonial ? 'bg-white' : 'bg-gray-600'
             }`}
           />
         ))}
@@ -69,10 +70,12 @@ const TestimonialCaraousel = () => {
           >
             <div className="bg-[#1c2541] p-6 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 h-full flex flex-col">
               <div className="flex items-center mb-4">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  width={64}
+                  height={64}
+                  className="rounded-full mr-4 object-cover"
                 />
                 <div>
                   <h4 className="font-bold text-white">{testimonial.name}</h4>

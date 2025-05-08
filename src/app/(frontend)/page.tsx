@@ -86,9 +86,15 @@ export default function Home() {
         <div className="noise-overlay"></div>
         <div className="glow-orbs"></div>
         <div className="hero-content">
-          <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-            <AuroraText>This is ByteSpace</AuroraText>
-          </h1>
+          <div className="mb-4 flex flex-col sm:flex-col md:flex-row md:items-end md:gap-4 md:p-4">
+            <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+              This is
+            </h1>
+            <AuroraText className="text-5xl md:text-6xl lg:text-7xl font-bold leading-none">
+              ByteSpace
+            </AuroraText>
+          </div>
+
           <p className="hero-subtitle text-xl md:text-2xl text-gray-300 mb-8">
             explore beyond our boundaries
           </p>
@@ -124,11 +130,12 @@ export default function Home() {
       <section className="py-20 px-4 md:px-10 relative" ref={featuresRef}>
         <div className="container mx-auto max-w-7xl">
           <div
-            className={`bento-grid grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-1000 ${isInViewport.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            className={`bento-grid grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-1000 ${
+              isInViewport.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
           >
             <div className="bento-item md:col-span-5 lg:col-span-6 bg-[#1c2541]/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:shadow-lg hover:shadow-[#3a86ff]/10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient h-20">
                 What is ByteSpace?
               </h2>
               <p className="text-lg md:text-xl text-gray-300">
@@ -140,7 +147,7 @@ export default function Home() {
             <div className="bento-item md:col-span-7 lg:col-span-6 flex flex-col gap-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
                 <div className="bg-[#1c2541]/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 hover:border-primary transition-all hover:shadow-lg hover:shadow-[#3a86ff]/10 flex flex-col">
-                  <div className="text-primary mb-4">
+                  <div className=" mb-4 text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="28"
@@ -155,7 +162,7 @@ export default function Home() {
                       <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Structured Courses</h3>
+                  <h3 className="text-xl font-bold mb-2 text-white ">Structured Courses</h3>
                   <p className="text-gray-400 text-sm">
                     Learn at your own pace with our expertly crafted courses
                   </p>
@@ -179,7 +186,7 @@ export default function Home() {
                       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Community Wiki</h3>
+                  <h3 className="text-xl font-bold mb-2 text-white">Community Wiki</h3>
                   <p className="text-gray-400 text-sm">
                     Collaborative knowledge base built by our community
                   </p>
@@ -204,7 +211,7 @@ export default function Home() {
                       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Thriving Community</h3>
+                  <h3 className="text-white text-xl font-bold mb-2">Thriving Community</h3>
                   <p className="text-gray-400">
                     Connect with like-minded tech enthusiasts and grow your network
                   </p>
@@ -237,11 +244,12 @@ export default function Home() {
 
       <section
         ref={keyFeaturesRef}
-        className={`py-16 relative overflow-hidden transition-all duration-1000 ${isInViewport.keyFeatures ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-16 relative overflow-hidden transition-all duration-1000 ${
+          isInViewport.keyFeatures ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
+          <h2 className="h-20 text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
             Our Key Features
           </h2>
           <FeatureCarousel />
@@ -250,17 +258,18 @@ export default function Home() {
 
       <section
         ref={whyJoinRef}
-        className={`py-20 relative overflow-hidden bg-[#0b132b] transition-all duration-1000 ${isInViewport.whyJoin ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-20 relative overflow-hidden bg-[#0b132b] transition-all duration-1000 ${
+          isInViewport.whyJoin ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
+          <h2 className="h-20 text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
             Why Join Us?
           </h2>
 
           <div className="bento-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="bento-item bg-[#1c2541] p-8 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20">
-              <div className="icon-container mb-6 bg-[#0a0d14] w-16 h-16 rounded-lg flex items-center justify-center text-primary">
+              <div className="icon-container mb-6 bg-[#0a0d14] w-16 h-16 rounded-lg flex items-center justify-center text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="28"
@@ -342,11 +351,12 @@ export default function Home() {
 
       <section
         ref={testimonialsRef}
-        className={`py-20 relative overflow-hidden transition-all duration-1000 ${isInViewport.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-20 relative overflow-hidden transition-all duration-1000 ${
+          isInViewport.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gradient">
+          <h2 className="h-18 text-3xl md:text-4xl font-bold mb-6 text-center text-gradient">
             What People Say About ByteSpace
           </h2>
           <p className="text-lg text-gray-300 text-center mb-10 max-w-2xl mx-auto">
@@ -359,12 +369,13 @@ export default function Home() {
 
       <section
         ref={ctaRef}
-        className={`py-20 relative overflow-hidden bg-gradient-to-b from-[#0a0d14] to-[#0b132b] transition-all duration-1000 ${isInViewport.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-20 relative overflow-hidden bg-gradient-to-b from-[#0a0d14] to-[#0b132b] transition-all duration-1000 ${
+          isInViewport.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
         <div className="container mx-auto px-4">
           <div className="bento-item max-w-4xl mx-auto bg-[#1c2541]/70 backdrop-blur-md p-10 rounded-2xl border border-white/10 hover:border-primary/40 transition-all duration-300">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient text-center">
+            <h2 className="h-20 sm:text-lg text-3xl md:text-4xl font-bold mb-6 text-gradient text-center">
               Ready to Go Beyond Your Limit?
             </h2>
             <p className="text-lg text-gray-300 mb-10 text-center">

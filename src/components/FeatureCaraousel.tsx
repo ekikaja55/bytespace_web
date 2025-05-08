@@ -106,7 +106,7 @@ const FeatureCaraousel = () => {
             key={index}
             onClick={() => setActive(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === active ? 'bg-primary' : 'bg-gray-600'
+              index === active ? 'bg-white' : 'bg-gray-600'
             }`}
           />
         ))}
@@ -121,11 +121,11 @@ const FeatureCaraousel = () => {
             onClick={() => setActive(index)}
           >
             <div className="bg-[#1c2541] p-6 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 h-full flex flex-col">
-              <div className="mb-4 text-primary">{feature.icon}</div>
+              <div className="mb-4 text-white">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
               <p className="text-gray-400 mb-4">{feature.description}</p>
               <div className="mt-auto">
-                <Link href="/" className="text-primary hover:text-accent flex items-center">
+                <Link href="/" className="text-white hover:text-accent flex items-center">
                   Explore
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
