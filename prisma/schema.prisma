@@ -12,96 +12,97 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  user_id String @id @default(auto()) @map("_id") @db.ObjectId
-  user_name String 
-  user_email String @unique
-  user_password String 
-  user_role String
-  user_gender String
-  user_date_birth DateTime
+model User {
+  user_id            String            @id @default(auto()) @map("_id") @db.ObjectId
+  user_name          String
+  user_email         String            @unique
+  user_password      String
+  user_role          String
+  user_gender        String
+  user_date_birth    DateTime
   user_profile_image String
   user_refresh_token String
-  user_api_key String
-  user_transaction Transaction[]
-  user_subscription SubscriptionLog[]
+  user_api_key       String
+  user_transaction   Transaction[]
+  user_subscription  SubscriptionLog[]
 }
 
-type Transaction{
-  trans_date DateTime
-  trans_total Int
+type Transaction {
+  trans_date   DateTime
+  trans_total  Int
   trans_detail DTransaction[]
 }
 
-type DTransaction{
+type DTransaction {
+  detail_name  String
   detail_price Int
 }
 
-type SubscriptionLog{
+type SubscriptionLog {
   subs_course String
-  subs_start DateTime
-  subs_end DateTime
+  subs_start  DateTime
+  subs_end    DateTime
 }
 
-model Post{
-  post_id String @id @default(auto()) @map("_id") @db.ObjectId
-  post_title String
+model Post {
+  post_id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  post_title      String
   post_short_desc String
-  post_long_desc String
-  post_image String[]
-  post_tag String
-  post_type String
-  post_comment Comment[]
+  post_long_desc  String
+  post_image      String[]
+  post_tag        String
+  post_type       String
+  post_comment    Comment[]
 }
 
-type Comment{
+type Comment {
   comment_user String
   comment_date DateTime
-  comment_like Int @default(0)
+  comment_like Int      @default(0)
 }
 
-model Course{
-  course_id String @id @default(auto()) @map("_id") @db.ObjectId
-  course_name String
-  course_mentor String
-  course_image String
-  course_desc String
+model Course {
+  course_id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  course_name    String
+  course_mentor  String
+  course_image   String
+  course_desc    String
   course_content Content[]
 }
 
-type Content{
-  content_title String
+type Content {
+  content_title      String
   content_short_desc String
-  content_desc String
-  content_src Src
+  content_desc       String
+  content_src        Src
 }
 
-type Src{
-  img_url String[]
+type Src {
+  img_url   String[]
   video_url String
 }
 
-model chat{
-  chat_id String @id @default(auto()) @map("_id") @db.ObjectId
-  chat_sender String
+model chat {
+  chat_id       String @id @default(auto()) @map("_id") @db.ObjectId
+  chat_sender   String
   chat_receiver String
-  chat_message String
+  chat_message  String
 }
 
 model Forum {
-  forum_id  String @id @default(auto()) @map("_id") @db.ObjectId
-  forum_title  String
-  forum_date   DateTime
-  forum_desc   String
-  forum_img    String
-  forum_like   Int          @default(0)
+  forum_id        String       @id @default(auto()) @map("_id") @db.ObjectId
+  forum_title     String
+  forum_date      DateTime
+  forum_desc      String
+  forum_img       String
+  forum_like      Int          @default(0)
   forum_publisher String
-  forum_reply  ForumReply[]
+  forum_reply     ForumReply[]
 }
 
 type ForumReply {
   username String
   date     DateTime
   reply    String
-  replies  ForumReply[] 
+  replies  ForumReply[]
 }
