@@ -34,7 +34,6 @@ type Transaction{
 }
 
 type DTransaction{
-  detail_name String
   detail_price Int
 }
 

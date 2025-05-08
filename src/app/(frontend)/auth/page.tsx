@@ -98,21 +98,21 @@ const signInSchema = Joi.object({
 });
 
 const registerSchema = Joi.object({
-  name: Joi.string()
+  user_name: Joi.string()
     .required()
     .min(2)
     .messages({
       'string.empty': 'Full name is required',
       'string.min': 'Name must be at least 2 characters',
     }),
-  email: Joi.string()
+  user_email: Joi.string()
     .email({ tlds: { allow: false } })
     .required()
     .messages({
       'string.empty': 'Email is required',
       'string.email': 'Please enter a valid email address',
     }),
-  password: Joi.string()
+  user_password: Joi.string()
     .required()
     .min(8)
     .messages({
@@ -126,7 +126,7 @@ const registerSchema = Joi.object({
       'any.only': 'Passwords do not match',
       'string.empty': 'Please confirm your password',
     }),
-  birthDate: Joi.date()
+  user_date_birth: Joi.date()
     .required()
     .max('now')
     .messages({
@@ -134,8 +134,8 @@ const registerSchema = Joi.object({
       'date.max': 'Birth date cannot be in the future',
       'any.required': 'Birth date is required',
     }),
-  gender: Joi.string()
-    .valid('male', 'female', 'other')
+  user_gender: Joi.string()
+    .valid('male', 'female')
     .required()
     .messages({
       'any.only': 'Please select a valid gender option',
@@ -270,7 +270,7 @@ const Page = () => {
 
   return (
     <div className="min-h-screen w-full  flex items-center justify-center p-4 md:p-6">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 w-full max-w-6xl mt-[20vh] mb-[20vh]">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 w-full max-w-6xl mt-[20vh] mb-[20vh] md:p-10">
         <motion.div
           variants={fadeLeft}
           initial="hidden"
@@ -278,7 +278,7 @@ const Page = () => {
           className="text-white max-w-md text-center md:text-left space-y-6 mb-6 md:mb-0"
         >
           <div className="space-y-2">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] mt-[9vh] h-[7vh]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl md:h-27 lg:h-35 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#F59E0B] mt-[9vh] h-[7vh]">
               {activeTab === "signin" ? "Welcome Back" : "Join Us Today"}
             </h1>
             <p className="text-lg md:text-xl text-white/70">

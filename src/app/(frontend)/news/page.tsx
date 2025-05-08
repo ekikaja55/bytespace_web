@@ -262,8 +262,8 @@ const NewsDashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen h-full flex flex-col gap-6 p-4 md:p-6 bg-transparent">
-      <h1 className="text-4xl text-white font-bold">Tech News</h1>
+    <div className="min-h-screen h-full flex flex-col gap-6 p-6 md:p-6 bg-transparent">
+      <h1 className="text-4xl text-white font-bold mt-[10vh]">Tech News</h1>
       
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
         <div className="relative w-full md:w-64">

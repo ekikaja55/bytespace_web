@@ -66,7 +66,7 @@ export default function Navbar() {
 
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
-  }, []);
+  }, []); 
 
   useEffect(() => {
     if (mobileMenuOpen) {
