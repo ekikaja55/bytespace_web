@@ -15,7 +15,6 @@ import {
   Filter,
   LayoutGrid,
   LayoutList,
-  ArrowUpDown,
   Bookmark,
   BookmarkCheck
 } from "lucide-react";
