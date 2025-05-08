@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ShineBorder } from './magicui/shine-border';
 
 const FeatureCaraousel = () => {
   const [active, setActive] = useState(0);
@@ -105,22 +106,23 @@ const FeatureCaraousel = () => {
           <button
             key={index}
             onClick={() => setActive(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === active ? 'bg-white' : 'bg-gray-600'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === active ? 'bg-white' : 'bg-gray-600'
+              }`}
           />
         ))}
       </div>
+
       <div className="relative w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
+
         {features.map((feature, index) => (
           <div
             key={index}
-            className={`feature-card transition-all duration-500 ${
-              index === active ? 'scale-105 z-10' : 'scale-95 opacity-70'
-            }`}
+            className={`feature-card transition-all duration-500 ${index === active ? 'scale-105 z-10' : 'scale-95 opacity-70'
+              }`}
             onClick={() => setActive(index)}
           >
-            <div className="bg-[#1c2541] p-6 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 h-full flex flex-col">
+            <div className="bg-neutral-900 p-6 rounded-xl border border-gray-700 hover:border-primary transition-all duration-300 h-full flex flex-col">
+
               <div className="mb-4 text-white">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
               <p className="text-gray-400 mb-4">{feature.description}</p>
@@ -144,6 +146,10 @@ const FeatureCaraousel = () => {
                   </svg>
                 </Link>
               </div>
+              <ShineBorder
+                className={`absolute inset-0 z-30`}
+                shineColor={["#8B5CF6", "#4F46E5", "#2563EB"]}
+              />
             </div>
           </div>
         ))}
