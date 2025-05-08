@@ -41,10 +41,11 @@ export const getArticel = async (req: Request) => {
   }
 };
 
-export const getArticelTop = async (req: Request, context: { params: { top: string } }) => {
+export const getArticelTop = async (req: Request, context: { params: Promise<Record<string, string>> }) => {
   try {
+    const {top} = await context.params
     const response = await axios.get(
-      `${process.env.DEVELOPER_API}/articles?top=${context.params.top}`
+      `${process.env.DEVELOPER_API}/articles?top=${top}`
     );
     if (response.data.length <= 0) {
       return NextResponse.json({ message: 'data is null' }, { status: 404 });
