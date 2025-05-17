@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { Card} from "@/components/ui/card";
@@ -593,7 +594,7 @@ const NewsDashboard = () => {
                   : "aspect-video w-full"
                   }`}
               >
-                <img
+                <Image
                   src={news.imageUrl}
                   alt={news.title}
                   className="w-full h-full object-cover"

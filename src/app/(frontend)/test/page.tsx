@@ -1,12 +1,6 @@
 'use client';
-
-import { useEffect, useState } from "react";
-
-
 const page = () => {
-    const [first, setfirst] = useState()
-    useEffect(() => { })
-    return console.log();
+    return console.log("test");
 };
 
 export default page;
