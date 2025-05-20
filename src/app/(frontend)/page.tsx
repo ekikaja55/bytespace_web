@@ -1,3 +1,4 @@
+/*eslint-disable */
 'use client';
 import FeatureCarousel from '@/components/FeatureCaraousel';
 import TestimonialCarousel from '@/components/TestimonialCaraousel';
