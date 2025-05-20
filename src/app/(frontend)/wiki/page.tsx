@@ -14,8 +14,6 @@ import {
   Filter,
   LayoutGrid,
   LayoutList,
-  Star,
-  StarHalf,
   Clock,
   BookMarked,
   Hash,
