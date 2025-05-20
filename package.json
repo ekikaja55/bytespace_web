@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "tsx prisma/seed/index.ts"
+    "seed": "tsx prisma/seed/index.ts",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@faker-js/faker": "^9.7.0",
