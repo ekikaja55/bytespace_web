@@ -597,6 +597,7 @@ const NewsDashboard = () => {
                 <Image
                   src={news.imageUrl}
                   alt={news.title}
+                  fill
                   className="w-full h-full object-cover"
                 />
                 <Button

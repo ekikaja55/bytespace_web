@@ -2,7 +2,6 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { ShineBorder } from "@/components/magicui/shine-border";
 import { AuroraText } from './magicui/aurora-text';
 
 
@@ -89,11 +88,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 lg:px-8 py-4 transition-all duration-300 rounded-b-3xl ${isScrolled ? 'bg-[#0a0d14]/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-6 lg:px-8 py-4 transition-all duration-300  ${isScrolled ? 'bg-zinc-900' : 'bg-transparent'
         }`}
       aria-label="Main navigation"
     >
-      <ShineBorder shineColor={["#8B5CF6", "#EC4899", "#F59E0B"]} />
 
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link
@@ -257,7 +255,6 @@ export default function Navbar() {
           className={`absolute top-0 right-0 h-full w-3/4 max-w-sm bg-[#0a0d14] shadow-xl p-6 overflow-y-auto rounded-l-2xl transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
         >
-          <ShineBorder shineColor={["#8B5CF6", "#EC4899", "#F59E0B"]} />
 
           <div className="flex justify-between items-center mb-8">
             <Link href="/" className="text-xl font-bold" onClick={() => setMobileMenuOpen(false)}>

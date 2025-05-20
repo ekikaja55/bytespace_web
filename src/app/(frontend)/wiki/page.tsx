@@ -509,7 +509,7 @@ const WikiDashboard = () => {
   return (
     <div className="min-h-screen h-full flex flex-col max-w-screen-xl mx-auto bg-transparent px-4 sm:px-6 md:px-8">
       <div className="top-0 z-20 pt-4 pb-3 mt-[15vh]">
-        <div className="w-full max-w-screen px-4 md:px-12 py-10 bg-[rgba(15,23,42,0.6)] backdrop-blur-lg rounded-2xl mx-auto shadow-[0_0_30px_rgba(0,255,255,0.1)] relative overflow-hidden">
+        <div className="w-full max-w-screen px-4 md:px-12 py-10  backdrop-blur-lg rounded-2xl mx-auto shadow-[0_0_30px_rgba(0,255,255,0.1)] relative overflow-hidden">
           <AuroraText className="text-4xl md:text-6xl text-white font-bold tracking-tight mb-4">
             ByteSpace
           </AuroraText>
@@ -698,7 +698,7 @@ const WikiDashboard = () => {
           {paginatedArticles.map((article) => (
             <Card
               key={article.id}
-              className={`relative bg-gray-900/60 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:ring-1 hover:ring-indigo-500/50 cursor-pointer border-0 ${
+              className={`relative bg-zinc-800 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:ring-1 hover:ring-indigo-500/50 cursor-pointer border-0 ${
                 viewMode === 'list' ? 'flex' : 'flex flex-col'
               }`}
               onMouseEnter={() => setHoveredArticleId(article.id)}

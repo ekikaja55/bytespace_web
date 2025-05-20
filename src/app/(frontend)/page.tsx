@@ -1,12 +1,9 @@
-/* eslint-disable */
 'use client';
 import FeatureCarousel from '@/components/FeatureCaraousel';
 import TestimonialCarousel from '@/components/TestimonialCaraousel';
-import Navbar from '@/components/Navbar';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { AuroraText } from '@/components/magicui/aurora-text';
-import { ShineBorder } from '@/components/magicui/shine-border';
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -128,13 +125,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full h-[3px] bg-cyan-400 shadow-[0_0_10px_2px_rgba(34,211,238,0.7)] rounded-full animate-pulse" />
-
       <section className="py-20 px-4 md:px-10 relative" ref={featuresRef}>
         <div className="container mx-auto max-w-7xl">
           <div
-            className={`bento-grid grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-1000 ${isInViewport.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+            className={`bento-grid grid grid-cols-1 md:grid-cols-12 gap-6 transition-all duration-1000 ${
+              isInViewport.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
           >
             <div className="bento-item md:col-span-5 lg:col-span-6 bg-[#1c2541]/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:shadow-lg hover:shadow-[#3a86ff]/10">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient h-20">
@@ -244,32 +240,26 @@ export default function Home() {
         </div>
       </section>
 
-
       <section
         ref={keyFeaturesRef}
-        className={`py-16 relative overflow-hidden transition-all duration-1000 ${isInViewport.keyFeatures ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-16 relative overflow-hidden transition-all duration-1000 ${
+          isInViewport.keyFeatures ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
-        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-cyan-400 shadow-[0_0_10px_2px_rgba(34,211,238,0.7)] rounded-full animate-pulse" />
-
         <div className="container mx-auto px-4">
           <h2 className="h-20 text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
             Our Key Features
           </h2>
           <FeatureCarousel />
-
         </div>
-
       </section>
-
 
       <section
         ref={whyJoinRef}
-        className={`py-20 relative overflow-hidden bg-[#0b132b] transition-all duration-1000 ${isInViewport.whyJoin ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-20 relative overflow-hidden bg-[#0b132b] transition-all duration-1000 ${
+          isInViewport.whyJoin ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
-        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-cyan-400 shadow-[0_0_10px_2px_rgba(34,211,238,0.7)] rounded-full animate-pulse" />
-
         <div className="container mx-auto px-4 max-w-7xl">
           <h2 className="h-20 text-3xl md:text-4xl font-bold mb-10 text-center text-gradient">
             Why Join Us?
@@ -299,7 +289,6 @@ export default function Home() {
                 Access a wealth of knowledge and resources without breaking the bank. Our platform
                 is designed to be accessible while delivering maximum value.
               </p>
-             
             </div>
 
             <div className="bento-item bg-[#1c2541] p-8 rounded-xl border border-gray-700 hover:border-secondary transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-secondary/20">
@@ -360,8 +349,9 @@ export default function Home() {
 
       <section
         ref={testimonialsRef}
-        className={`py-20 relative overflow-hidden transition-all duration-1000 ${isInViewport.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-20 relative overflow-hidden transition-all duration-1000 ${
+          isInViewport.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
         <div className="container mx-auto px-4">
           <h2 className="h-18 text-3xl md:text-4xl font-bold mb-6 text-center text-gradient">
@@ -377,8 +367,9 @@ export default function Home() {
 
       <section
         ref={ctaRef}
-        className={`py-20 relative overflow-hidden bg-gradient-to-b from-[#0a0d14] to-[#0b132b] transition-all duration-1000 ${isInViewport.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+        className={`py-20 relative overflow-hidden bg-gradient-to-b from-[#0a0d14] to-[#0b132b] transition-all duration-1000 ${
+          isInViewport.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       >
         <div className="container mx-auto px-4">
           <div className="bento-item max-w-4xl mx-auto bg-[#1c2541]/70 backdrop-blur-md p-10 rounded-2xl border border-white/10 hover:border-primary/40 transition-all duration-300">
@@ -432,9 +423,8 @@ export default function Home() {
               </button>
             </div>
           </div>
-
         </div>
-
+        <div className="absolute bottom-0 left-0 w-full h-[3px] bg-cyan-400 shadow-[0_0_10px_2px_rgba(34,211,238,0.7)] rounded-full animate-pulse" />
       </section>
     </>
   );
